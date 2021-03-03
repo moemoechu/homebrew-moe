@@ -6,7 +6,7 @@ class P7zip < Formula
   license all_of: ["LGPL-2.1-or-later", "GPL-2.0-or-later"]
 
   # Remove non-free RAR sources
-  patch :DATA
+  # patch :DATA
 
   # Fix AES security bugs
   # https://github.com/jinfeihan57/p7zip/pull/117
@@ -41,6 +41,7 @@ diff -u -r a/makefile b/makefile
  	$(MAKE) -C CPP/7zip/UI/Client7z           depend
  	$(MAKE) -C CPP/7zip/UI/Console            depend
  	$(MAKE) -C CPP/7zip/Bundles/Format7zFree  depend
+-	$(MAKE) -C CPP/7zip/Compress/Rar          depend
  	$(MAKE) -C CPP/7zip/UI/GUI                depend
  	$(MAKE) -C CPP/7zip/UI/FileManager        depend
  
@@ -48,6 +49,7 @@ diff -u -r a/makefile b/makefile
  common7z:common
  	$(MKDIR) bin/Codecs
  	$(MAKE) -C CPP/7zip/Bundles/Format7zFree all
+-	$(MAKE) -C CPP/7zip/Compress/Rar         all
  
  lzham:common
  	$(MKDIR) bin/Codecs
@@ -55,6 +57,7 @@ diff -u -r a/makefile b/makefile
  	$(MAKE) -C CPP/7zip/UI/FileManager       clean
  	$(MAKE) -C CPP/7zip/UI/GUI               clean
  	$(MAKE) -C CPP/7zip/Bundles/Format7zFree clean
+-	$(MAKE) -C CPP/7zip/Compress/Rar         clean
  	$(MAKE) -C CPP/7zip/Compress/Lzham       clean
  	$(MAKE) -C CPP/7zip/Bundles/LzmaCon      clean2
  	$(MAKE) -C CPP/7zip/Bundles/AloneGCOV    clean
